@@ -107,7 +107,8 @@ main {
     border-radius: 10px;
 }
 
-.book_shelf > h2 {
+.book_shelf h2 {
+    text-align: center;
 }
 
 .book_shelf > .book_list {
