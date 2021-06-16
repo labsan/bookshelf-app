@@ -20,37 +20,37 @@
         <section class="book_shelf">
             <article>
                 <h2>Belum selesai dibaca</h2>
-                <div class="daftar-buku" id="buku-incomplete"></div>
+                <div class="daftar-buku" id="daftar-buku-uncompleted"></div>
             </article>
         </section>
 
         <section class="input_section">
             <h2>Masukkan Buku Baru</h2>
-            <form id="inputBook">
+            <form id="form">
                 <div class="input">
-                    <label for="inputBookTitle">Judul</label>
-                    <input id="inputBookTitle" type="text" required>
+                    <label for="title">Judul</label>
+                    <input type="text" name="title" id="title" placeholder="Cth: Analisis Geospasial" value="Analisis Geospasial" required>
                 </div>
                 <div class="input">
-                    <label for="inputBookAuthor">Penulis</label>
-                    <input id="inputBookAuthor" type="text" required>
+                    <label for="title">Penulis</label>
+                    <input type="text" name="author" id="author" placeholder="Cth: Santiyon" value="Santiyon" required>
                 </div>
                 <div class="input">
-                    <label for="inputBookYear">Tahun</label>
-                    <input id="inputBookYear" type="number" required>
+                    <label for="title">Tahun</label>
+                    <input type="number" name="year" id="year" placeholder="Cth: 2021" value="2021" required>
                 </div>
                 <div class="input_inline">
-                    <label for="inputBookIsComplete">Selesai dibaca</label>
-                    <input id="inputBookIsComplete" type="checkbox">
+                    <label for="title">Selesai dibaca</label>
+                    <input type="checkbox" name="check" id="check">
                 </div>
-                <button id="bookSubmit" type="submit"><span>Submit Buku</span></button>
+                <button type="submit" name="Submit" value="Submit"><span>Submit Buku</span></button>
             </form>
         </section>
 
         <section class="book_shelf">
             <article>
                 <h2>Selesai dibaca</h2>
-                <div class="daftar-buku" id="buku-complete"></div>
+                <div class="daftar-buku" id="daftar-buku-completed"></div>
             </article>
         </section>
     </main>

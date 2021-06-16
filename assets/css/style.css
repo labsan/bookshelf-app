@@ -23,6 +23,11 @@ input, button {
     color: var(--font-color);
 }
 
+::placeholder {
+    color: var(--font-color);
+    opacity: 0.6;
+}
+
 .head_bar {
     padding: 12px;
     display: flex;
@@ -111,35 +116,47 @@ main {
     text-align: center;
 }
 
-.book_shelf > .book_list {
-    padding: 16px;
+.item {
+    margin-top: 15px;
+	border-radius: 8px;
+	padding: 20px;
+	background-color: var(--main-color);
+	display: flex;
+	flex-direction: column;
+	align-items: start;
 }
 
-.book_shelf > .book_list > .book_item {
-    padding: 8px 16px 16px 16px;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px 0;
+.item h3, .item p {
+    margin-bottom: 10px;
 }
 
-.book_shelf > .book_list > .book_item > h3, p {
-    margin: 8px 0;
+.shadow {
+	box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05), 0 15px 40px rgba(166, 173, 201, 0.2);
 }
-
-.book_shelf > .book_list > .book_item > .action > button {
+.btn-baca {
     border: 0;
-    padding: 5px;
-    margin: 0 5px 0 0;
-    border-radius: 5px;
-    cursor: pointer;
+	cursor: pointer;
+
+    padding: 10px;
+    background-color: var(--body-color);
+	border-radius: 10px;
+	transition: ease .5s;
+}
+.btn-baca:hover {
+	color: var(--main-color);
+	background-color: var(--font-color);
 }
 
-.book_shelf > .book_list > .book_item > .action > .green {
-    background-color: darkgreen;
-    color: white;
-}
+.btn-hapus {
+    border: 0;
+	margin-top: 10px;
 
-.book_shelf > .book_list > .book_item > .action > .red {
-    background-color: darkred;
-    color: white;
+	padding: 10px;
+    background-color: var(--body-color);
+	border-radius: 10px;
+	transition: ease .5s;
+}
+.btn-hapus:hover {
+	color: var(--main-color);
+	background-color: var(--font-color);
 }
