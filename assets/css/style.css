@@ -29,6 +29,7 @@ input, button {
 }
 
 .head_bar {
+    width: 100%;
     padding: 12px;
     display: flex;
     align-items: center;

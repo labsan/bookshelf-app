@@ -2,25 +2,25 @@ const LIST_BOOK_UNCOMPLETED = "daftar-buku-uncompleted";
 const LIST_BOOK_COMPLETED = "daftar-buku-completed";
 const ID_BUKU = "bukuId";
 
-function makeLogBook(title, author, year, isComplete) {
-	const textTitle = document.createElement("h3");
-	textTitle.innerHTML = '<span id="title">' + title + "</span>";
+function makeLogBook(judul, penulis, tahun, isComplete) {
+	const txt_judul = document.createElement("h3");
+	txt_judul.innerHTML = '<span id="title">' + judul + "</span>";
 
-	const textAuthor = document.createElement("p");
-	textAuthor.classList.add("author");
-	textAuthor.innerHTML = author;
+	const txt_penulis = document.createElement("p");
+	txt_penulis.classList.add("author");
+	txt_penulis.innerHTML = penulis;
 
-	const textYear = document.createElement("p");
-	textYear.classList.add("year");
-	textYear.innerHTML = year;
+	const txt_tahun = document.createElement("p");
+	txt_tahun.classList.add("year");
+	txt_tahun.innerHTML = tahun;
 
-	const textContainer = document.createElement("div");
-	textContainer.classList.add("inner");
-	textContainer.append(textTitle, textAuthor, textYear);
+	const txt_container = document.createElement("div");
+	txt_container.classList.add("inner");
+	txt_container.append(txt_judul, txt_penulis, txt_tahun);
 
 	const container = document.createElement("div");
 	container.classList.add("item", "shadows");
-	container.append(textContainer);
+	container.append(txt_container);
 	if (isComplete) {
 		container.append(createUndoButton(), createTrashButton());
 	} else {
@@ -33,9 +33,9 @@ function addLogBook() {
 	const completeBookList = document.getElementById(LIST_BOOK_COMPLETED);
 	const uncompleteBookList = document.getElementById(LIST_BOOK_UNCOMPLETED);
 
-	const val_judul_buku = document.getElementById("title").value;
-	const val_penulis_buku = document.getElementById("author").value;
-	const val_tahun_buku = document.getElementById("year").value;
+	const val_judul_buku = document.getElementById("judul").value;
+	const val_penulis_buku = document.getElementById("penulis").value;
+	const val_tahun_buku = document.getElementById("tahun").value;
 	const checkBox = document.getElementById("check");
 
 	if (checkBox.checked == true) {
