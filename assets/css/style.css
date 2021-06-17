@@ -23,6 +23,12 @@ input, button {
     color: var(--font-color);
 }
 
+button:hover {
+    background-color: var(--font-color);
+    color: var(--main-color);
+    transition: ease 1s;
+}
+
 ::placeholder {
     color: var(--font-color);
     opacity: 0.6;
@@ -39,7 +45,7 @@ input, button {
 
 main {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1.5fr;
+    grid-template-columns: 1.4fr 1.2fr 1.4fr;
     gap: 20px;
 
     width: 100%;
@@ -53,6 +59,7 @@ main {
     flex-direction: column;
     
     padding: 20px;
+    max-height: 410px;
     background-color: var(--header-color);
     border: 5px solid var(--main-color);
     border-radius: 10px;

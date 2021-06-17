@@ -2,21 +2,21 @@ const LIST_BOOK_UNCOMPLETED = 'daftar-buku-uncompleted';
 const LIST_BOOK_COMPLETED = 'daftar-buku-completed';
 const ID_BUKU = 'bukuId';
 
-function makeLogBook(judul, penulis, tahun, isComplete) {
-  const txt_judul = document.createElement('h3');
-  txt_judul.innerHTML = '<span id="title">' + judul + '</span>';
+function makeLogBook(title, author, year, isComplete) {
+  const txt_title = document.createElement('h3');
+  txt_title.innerHTML = '<span id="judul">' + title + '</span>';
 
-  const txt_penulis = document.createElement('p');
-  txt_penulis.classList.add('author');
-  txt_penulis.innerHTML = penulis;
+  const txt_author = document.createElement('p');
+  txt_author.classList.add('author');
+  txt_author.innerHTML = author;
 
-  const txt_tahun = document.createElement('p');
-  txt_tahun.classList.add('year');
-  txt_tahun.innerHTML = tahun;
+  const txt_year = document.createElement('p');
+  txt_year.classList.add('year');
+  txt_year.innerHTML = year;
 
   const txt_container = document.createElement('div');
   txt_container.classList.add('inner');
-  txt_container.append(txt_judul, txt_penulis, txt_tahun);
+  txt_container.append(txt_title, txt_author, txt_year);
 
   const container = document.createElement('div');
   container.classList.add('item', 'shadows');
@@ -33,23 +33,23 @@ function addLogBook() {
   const completeBookList = document.getElementById(LIST_BOOK_COMPLETED);
   const uncompleteBookList = document.getElementById(LIST_BOOK_UNCOMPLETED);
 
-  const val_judul_buku = document.getElementById('judul').value;
-  const val_penulis_buku = document.getElementById('penulis').value;
-  const val_tahun_buku = document.getElementById('tahun').value;
+  const val_title_buku = document.getElementById('title').value;
+  const val_author_buku = document.getElementById('author').value;
+  const val_year_buku = document.getElementById('year').value;
   const checkBox = document.getElementById('check');
 
   if (checkBox.checked == true) {
     const book = makeLogBook(
-        val_judul_buku,
-        val_penulis_buku,
-        val_tahun_buku,
+        val_title_buku,
+        val_author_buku,
+        val_year_buku,
         true,
     );
 
     const objek_buku = composeTodoObject(
-        val_judul_buku,
-        val_penulis_buku,
-        val_tahun_buku,
+        val_title_buku,
+        val_author_buku,
+        val_year_buku,
         true,
     );
 
@@ -58,18 +58,19 @@ function addLogBook() {
 
     completeBookList.append(book);
     updateDataToStorage();
-  } else {
+  } 
+  else {
     const book = makeLogBook(
-        val_judul_buku,
-        val_penulis_buku,
-        val_tahun_buku,
+        val_title_buku,
+        val_author_buku,
+        val_year_buku,
         false,
     );
 
     const objek_buku = composeTodoObject(
-        val_judul_buku,
-        val_penulis_buku,
-        val_tahun_buku,
+        val_title_buku,
+        val_author_buku,
+        val_year_buku,
         false,
     );
 
@@ -93,11 +94,11 @@ function createButton(buttonTypeClass, text, eventListener) {
 function addBookToCompleted(bookElement) {
   const listCompleted = document.getElementById(LIST_BOOK_COMPLETED);
 
-  const el_judul_buku = bookElement.querySelector('.item > .inner > h3').innerText;
-  const el_penulis_buku = bookElement.querySelector('.item > .inner > p.author').innerText;
-  const el_tahun_buku = bookElement.querySelector('.item > .inner > p.year').innerText;
+  const el_title_buku = bookElement.querySelector('.item > .inner > h3').innerText;
+  const el_author_buku = bookElement.querySelector('.item > .inner > p.author').innerText;
+  const el_year_buku = bookElement.querySelector('.item > .inner > p.year').innerText;
 
-  const buku_baru = makeLogBook(el_judul_buku, el_penulis_buku, el_tahun_buku, true);
+  const buku_baru = makeLogBook(el_title_buku, el_author_buku, el_year_buku, true);
 
   const buku = findBook(bookElement[ID_BUKU]);
   buku.isComplete = true;
@@ -112,11 +113,11 @@ function addBookToCompleted(bookElement) {
 function undoBookToStillRead(bookElement) {
   const listUncompleted = document.getElementById(LIST_BOOK_UNCOMPLETED);
 
-  const el_judul_buku = bookElement.querySelector('.item > .inner > h3').innerText;
-  const el_penulis_buku = bookElement.querySelector('.item > .inner > p').innerText;
-  const el_tahun_buku = bookElement.querySelector('.item > .inner > p').innerText;
+  const el_title_buku = bookElement.querySelector('.item > .inner > h3').innerText;
+  const el_author_buku = bookElement.querySelector('.item > .inner > p.author').innerText;
+  const el_year_buku = bookElement.querySelector('.item > .inner > p.year').innerText;
 
-  const buku_baru = makeLogBook(el_judul_buku, el_penulis_buku, el_tahun_buku, false);
+  const buku_baru = makeLogBook(el_title_buku, el_author_buku, el_year_buku, false);
 
   const buku = findBook(bookElement[ID_BUKU]);
   buku.isComplete = false;
